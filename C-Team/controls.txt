@@ -1,0 +1,5 @@
+C1P1 Left Drive
+C1P2 Right Drive
+C2P1 Spinner Thing
+C3S1 Arm
+C3S2 Hand
