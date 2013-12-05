@@ -1,0 +1,24 @@
+CONTROL MODE ONE                                  | Stored in seperate files
+	FIRST + SECOND JOYSTICK                         | Same controls on bolth
+		Joysticks  > Tank Drive                       | Normal driving
+		Hat Y axis > Arm Activation                   | Run motor (one way +, one way -)
+		Hat X axis > Elbow                            | Run motor (one way +, one way -)
+		X button   > Spinny thing                     | Run motor
+		Y button   > Open gripper                     | Run motor hard, then continually soft
+		B button   > Close gripper                    | Run motor hard, then continually soft
+		A button   > Honk                             | Play sound file
+CONTROL MODE TWO                                  | Stored in seperate files
+	FIRST JOYSTICK                                  | Seperate controls
+		Joysticks  > Tank Drive                       | Normal driving
+		X button   > Spinny thing                     | Run motor
+		A button   > Honk                             | Play sound file
+	SECOND JOYSTICK                                 | Seperate controls
+		Joystick 1 > Arm                              | Tank drive w/ arm motors
+		Joystick 2 > Elbow                            | Tank drive w/ arm motors
+		LT         > Open Left arm half (Momentary)   | Medium signal to open, otherwise small to close
+		RT         > Open Right arm half (Momentary)  | Medium signal to open, otherwise small to close
+
+X > 00
+A > 01
+B > 02
+Y > 03
