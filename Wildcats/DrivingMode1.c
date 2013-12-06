@@ -37,19 +37,19 @@ task main(){
 
 		{ // Hat control
 			if (joystick.joy1_TopHat==0 || joystick.joy1_TopHat==1 || joystick.joy1_TopHat==7){ // Arm Forward
-				motor[arm]=75;
+				motor[arm]=25;
 			}else{
 				if (joystick.joy1_TopHat==4 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==5){ // Arm Backward
-					motor[arm]=-75;
+					motor[arm]=-25;
 				}else{
 					motor[arm]=0;
 				}
 			}
 			if (joystick.joy1_TopHat==2 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==1){ // Elbow forward
-				motor[elbow]=75;
+				motor[elbow]=15;
 			}else{
 				if (joystick.joy1_TopHat==6 || joystick.joy1_TopHat==7 || joystick.joy1_TopHat==5){ // Elbow backward
-					motor[elbow]=-75;
+					motor[elbow]=-15;
 				}else{
 					motor[elbow]=0;
 				}
