@@ -46,10 +46,10 @@ task main(){
 				}
 			}
 			if (joystick.joy1_TopHat==2 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==1){ // Elbow forward
-				motor[elbow]=15;
+				motor[elbow]=30;
 			}else{
 				if (joystick.joy1_TopHat==6 || joystick.joy1_TopHat==7 || joystick.joy1_TopHat==5){ // Elbow backward
-					motor[elbow]=-15;
+					motor[elbow]=-30;
 				}else{
 					motor[elbow]=0;
 				}
