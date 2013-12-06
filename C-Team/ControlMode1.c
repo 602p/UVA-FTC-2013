@@ -1,7 +1,11 @@
-#pragma config(Hubs   , S1          , HTMotor , none                   , none     , none     )
-#pragma config(Sensor , S1          ,         , sensorI2CMuxController ,          ,          )
-#pragma config(Motor  , mtr_S1_C1_1 , motor1  , tmotorTetrix           , openLoop , reversed )
-#pragma config(Motor  , mtr_S1_C1_2 , motor2  , tmotorTetrix           , openLoop ,          )
+#pragma config(Hubs  ,  S1          , HTMotor, HTMotor               , HTServo , none     )
+#pragma config(Sensor,  S1          ,        , sensorI2CMuxController                     )
+#pragma config(Motor ,  mtr_S1_C1_1 , motor1 , tmotorTetrix          , openLoop, reversed )
+#pragma config(Motor ,  mtr_S1_C1_2 , motor2 , tmotorTetrix          , openLoop           )
+#pragma config(Motor ,  mtr_S1_C2_1 , spnmtr , tmotorTetrix          , openLoop           )
+#pragma config(Motor ,  mtr_S1_C2_2 , motorG , tmotorTetrix          , openLoop           )
+#pragma config(Servo ,  srvo_S1_C3_1, Arm    , tServoStandard                             )
+#pragma config(Servo ,  srvo_S1_C3_2, Elbow  , tServoStandard                             )
 //Setup Motors^
 
 //========================================//
@@ -22,7 +26,7 @@ const int SPEED_MULT =1 ;
 //Main Code:
 task main(){
 	while(true){ //Repeat the following forever:
-		{
+		{ // Driving
 			if(abs(SPEED_MULT * joystick.joy1_y1) > THRESHOLD) { //If the joystick is outside of the deadzone:
 				motor[motor1] = SPEED_MULT * joystick.joy1_y1;   //Set motor speed to joystick value * multiplier
 			}else{                                               //Otherwise:
@@ -33,6 +37,10 @@ task main(){
 			}else{                                               //Otherwise:
 				motor[motor2] = 0;                               //Set motor to 0
 			}
+		}
+
+		{ //
+
 		}
 	}
 }
