@@ -2,8 +2,8 @@
 #pragma config(Sensor,  S1         ,           , sensorI2CMuxController                     )
 #pragma config(Motor ,  mtr_S1_C1_1, leftDrive , tmotorTetrix          , openLoop, reversed )
 #pragma config(Motor ,  mtr_S1_C1_2, rightDrive, tmotorTetrix          , openLoop           )
-#pragma config(Motor ,  mtr_S1_C2_2, arm       , tmotorTetrix          , openLoop           )
-#pragma config(Motor ,  mtr_S1_C3_2, elbow     , tmotorTetrix          , openLoop           )
+#pragma config(Motor ,  mtr_S1_C2_2, arm_      , tmotorTetrix          , openLoop           )
+#pragma config(Motor ,  mtr_S1_C3_2, elbow_    , tmotorTetrix          , openLoop           )
 #pragma config(Motor ,  mtr_S1_C2_1, spinner   , tmotorTetrix          , openLoop           )
 #pragma config(Motor ,  mtr_S1_C3_1, gripper   , tmotorTetrix          , openLoop           )
 //Setup Motors^
@@ -41,21 +41,21 @@ task main(){
 
 		{ // Hat control
 			if (joystick.joy1_TopHat==0 || joystick.joy1_TopHat==1 || joystick.joy1_TopHat==7){ // Arm Forward
-				motor[arm]=ARM_SPEED;
+				motor[arm_]=ARM_SPEED;
 			}else{
 				if (joystick.joy1_TopHat==4 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==5){ // Arm Backward
-					motor[arm]=-ARM_SPEED;
+					motor[motor[arm_]]=-ARM_SPEED;
 				}else{
-					motor[arm]=0;
+					motor[arm_]=0;
 				}
 			}
 			if (joystick.joy1_TopHat==2 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==1){ // Elbow forward
-				motor[elbow]=ELBOW_SPEED;
+				motor[elbow_]=ELBOW_SPEED;
 			}else{
 				if (joystick.joy1_TopHat==6 || joystick.joy1_TopHat==7 || joystick.joy1_TopHat==5){ // Elbow backward
-					motor[elbow]=-ELBOW_SPEED;
+					motor[elbow_]=-ELBOW_SPEED;
 				}else{
-					motor[elbow]=0;
+					motor[elbow_]=0;
 				}
 			}
 		}

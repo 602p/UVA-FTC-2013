@@ -3,7 +3,6 @@
 #pragma config(Motor ,  mtr_S1_C1_1 , motor1 , tmotorTetrix          , openLoop, reversed )
 #pragma config(Motor ,  mtr_S1_C1_2 , motor2 , tmotorTetrix          , openLoop           )
 #pragma config(Motor ,  mtr_S1_C2_1 , spnmtr , tmotorTetrix          , openLoop           )
-#pragma config(Motor ,  mtr_S1_C2_2 , motorG , tmotorTetrix          , openLoop           )
 #pragma config(Servo ,  srvo_S1_C3_1, Arm    , tServoStandard                             )
 #pragma config(Servo ,  srvo_S1_C3_2, Elbow  , tServoStandard                             )
 //Setup Motors^
