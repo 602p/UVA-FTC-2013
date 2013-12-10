@@ -15,8 +15,12 @@
 #include "JoystickDriver.c"
 
 //Define Constants:
-const int THRESHOLD  =10;
-const int SPEED_MULT =1 ;
+const int THRESHOLD   =10;
+const int SPEED_MULT  =1 ;
+const int ARM_SPEED   =50;
+const int ELBOW_SPEED =50;
+const int SPIN_SPEED  =75;
+const int GRIP_SPEED  =40;
 
 //Main Code:
 task main(){
@@ -37,19 +41,19 @@ task main(){
 
 		{ // Hat control
 			if (joystick.joy1_TopHat==0 || joystick.joy1_TopHat==1 || joystick.joy1_TopHat==7){ // Arm Forward
-				motor[arm]=45;
+				motor[arm]=ARM_SPEED;
 			}else{
 				if (joystick.joy1_TopHat==4 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==5){ // Arm Backward
-					motor[arm]=-45;
+					motor[arm]=-ARM_SPEED;
 				}else{
 					motor[arm]=0;
 				}
 			}
 			if (joystick.joy1_TopHat==2 || joystick.joy1_TopHat==3 || joystick.joy1_TopHat==1){ // Elbow forward
-				motor[elbow]=50;
+				motor[elbow]=ELBOW_SPEED;
 			}else{
 				if (joystick.joy1_TopHat==6 || joystick.joy1_TopHat==7 || joystick.joy1_TopHat==5){ // Elbow backward
-					motor[elbow]=-50;
+					motor[elbow]=-ELBOW_SPEED;
 				}else{
 					motor[elbow]=0;
 				}
@@ -58,10 +62,10 @@ task main(){
 
 		{ // Spinner control
 			if (joy1Btn(0)==1){
-				motor[spinner]=75;
+				motor[spinner]=SPIN_SPEED;
 			}else{
 				if (joy1Btn(1)==1){
-					motor[spinner]=-75;
+					motor[spinner]=-SPIN_SPEED;
 				}else{
 					motor[spinner]=0;
 				}
@@ -70,10 +74,10 @@ task main(){
 
 		{ // Gripper control
 			if (joy1Btn(2)==1){
-				motor[gripper]=75;
+				motor[gripper]=GRIP_SPEED;
 			}else{
 				if (joy1Btn(3)==1){
-					motor[gripper]=-75;
+					motor[gripper]=-GRIP_SPEED;
 				}else{
 					motor[gripper]=0;
 				}
