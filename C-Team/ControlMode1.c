@@ -23,7 +23,7 @@
 const int THRESHOLD  =10;
 const int SPEED_MULT =1 ;
 int ArmServo = -25;
-int ElbowServo = 0];
+int ElbowServo = 0;
 
 //Main Code:
 task main(){
