@@ -21,8 +21,8 @@
 //Define Constants:
 const int THRESHOLD  =10;
 const int SPEED_MULT =1 ;
-int ArmServo = -25;
-int ElbowServo = 0;
+float ArmServo = 102;
+float ElbowServo = 0;
 
 //Main Code:
 task main(){
@@ -49,23 +49,26 @@ task main(){
 				}
 			}
 			if(joy1Btn(2)==1){
-				ArmServo = ArmServo--;
+				ArmServo = ArmServo - 0.1;
 			}else{
 				if(joy1Btn(4)==1){
-					ArmServo = ArmServo++;
+					ArmServo = ArmServo + 0.1;
 				}
 
 			}
-						if(joy1Btn(5)==1){
-				ElbowServo = ElbowServo--;
+			if(joy1Btn(5)==1){
+				ElbowServo = ElbowServo - 0.1;
 			}else{
 				if(joy1Btn(6)==1){
-					ElbowServo = ElbowServo++;
+					ElbowServo = ElbowServo + 0.1;
 				}
 
 			}
+			servo[Elbow] = ElbowServo;
+			servo[Arm] = ArmServo;
+			nxtDisplayTextLine(4, "   ELBOW: %f", ElbowServo);
+			nxtDisplayTextLine(4, "   ARM  : %f", ArmServo);
 		}
-		servo[Elbow] = ElbowServo;
-		servo[Arm] = ArmServo;
+
 	}
 }
