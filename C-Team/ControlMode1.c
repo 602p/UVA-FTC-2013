@@ -22,6 +22,8 @@
 //Define Constants:
 const int THRESHOLD  =10;
 const int SPEED_MULT =1 ;
+int ArmServo = ServoValue [Arm];
+int ElbowServo = ServoValue [Elbow];
 
 //Main Code:
 task main(){
@@ -39,8 +41,32 @@ task main(){
 			}
 		}
 
-		{ //
+		{ if(joy1Btn(7)==1){
+			motor[spnmtr]=-50;
+		}else{
+			if(joy1Btn(8)==1){
+				motor[spnmtr]=50;
+				}else{ motor[spnmtr]=0;
+				}
+			}
+			if(joy1Btn(2)==1){
+				ArmServo = ArmServo--;
+			}else{
+				if(joy1Btn(4)==1){
+					ArmServo = ArmServo++;
+				}
 
+			}
+						if(joy1Btn(5)==1){
+				ElbowServo = ElbowServo--;
+			}else{
+				if(joy1Btn(6)==1){
+					ElbowServo = ElbowServo++;
+				}
+
+			}
 		}
+		servo[Elbow] = ElbowServo;
+		servo[Arm] = ArmServo;
 	}
 }
