@@ -20,6 +20,8 @@
 //Define Constants:
 const int THRESHOLD  =10;
 const int SPEED_MULT =1 ;
+const int SPIN_SPEED =75;
+const int LIFT_SPEED =50;
 
 //Main Code:
 task main(){
@@ -38,15 +40,15 @@ task main(){
 		}
 		{
 			if(joy1Btn(0)==1){
-				motor[spnmtr]=75;
+				motor[spnmtr]=SPIN_SPEED;
 			}else{
 				motor[spnmtr]=0;
 			}
 			if(joy1Btn(1)==1){
-				motor[lftmtr]=25;
+				motor[lftmtr]=LIFT_SPEED;
 			}else{
 				if(joy1Btn(2)==1){
-					motor[lftmtr]=-25;
+					motor[lftmtr]=-LIFT_SPEED;
 				}else{
 					motor[lftmtr]=0;
 				}
