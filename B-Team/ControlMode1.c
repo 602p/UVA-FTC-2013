@@ -2,6 +2,8 @@
 #pragma config(Sensor , S1          ,         , sensorI2CMuxController ,          ,          )
 #pragma config(Motor  , mtr_S1_C1_1 , motor1  , tmotorTetrix           , openLoop , reversed )
 #pragma config(Motor  , mtr_S1_C1_2 , motor2  , tmotorTetrix           , openLoop ,          )
+#pragma config(Motor  , mtr_S1_C2_1 , spnmtr  , tmotorTetrix           , openLoop ,          )
+#pragma config(Motor  , mtr_S1_C2_2 , lftmtr  , tmotorTetrix           , openLoop ,          )
 //Setup Motors^
 
 //========================================//
@@ -32,6 +34,22 @@ task main(){
 				motor[motor2] = SPEED_MULT * joystick.joy1_y2;   //Set motor speed to joystick value * multiplier
 			}else{                                               //Otherwise:
 				motor[motor2] = 0;                               //Set motor to 0
+			}
+		}
+		{
+			if(joy1Btn(0)==1){
+				motor[spnmtr]=75;
+			}else{
+				motor[spnmtr]=0;
+			}
+			if(joy1Btn(1)==1){
+				motor[lftmtr]=25;
+			}else{
+				if(joy1Btn(2)==1){
+					motor[lftmtr]=-25;
+				}else{
+					motor[lftmtr]=0;
+				}
 			}
 		}
 	}
