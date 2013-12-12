@@ -64,8 +64,22 @@ task main(){
 				}
 
 			}
-			servo[Elbow] = ElbowServo;
-			servo[Arm] = ArmServo;
+			if(ElbowServo > 255){
+				ElbowServo = 255;
+				servo[Elbow] = ElbowServo;}
+				else if(ElbowServo < 0){
+					ElbowServo = 0;
+					servo[Elbow] = ElbowServo;}
+					else
+					{servo[Elbow] = ElbowServo;}
+			if(ArmServo > 255){
+				ArmServo = 255;
+				servo[Arm] = ArmServo;}
+				else if(ArmServo < 0){
+					ArmServo = 0;
+					servo[Arm] = ArmServo;}
+					else
+					{servo[Arm] = ArmServo;}
 			nxtDisplayTextLine(4, "   ELBOW: %f", ElbowServo);
 			nxtDisplayTextLine(4, "   ARM  : %f", ArmServo);
 		}
