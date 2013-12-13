@@ -82,7 +82,7 @@ task main(){
 					}
 				}
 			}
-			if(joy1Btn(7)==1){SPEED_MULT=CONST_SPEED_MULT/2;}else{SPEED_MULT=CONST_SPEED_MULT;}
+			if(joy1Btn(7)==1){SPEED_MULT=CONST_SPEED_MULT/3;}else{SPEED_MULT=CONST_SPEED_MULT;}
 		}
 	}
 }
