@@ -24,9 +24,11 @@
 
 //Define Constants:
 const int THRESHOLD  =10;
-const int SPEED_MULT =1 ;
+const float CONST_SPEED_MULT =1 ;
+float SPEED_MULT=CONST_SPEED_MULT;
 const int SPIN_SPEED =75;
 const int LIFT_SPEED =100;
+int riseState=0; // 0>Not moving, 1>Moving, 2>Stopped, only startable on 0, ovveridable on 2
 
 //Main Code:
 task main(){
@@ -44,20 +46,43 @@ task main(){
 			}
 		}
 		{
-			if(joy1Btn(0)==1){
+			if(joy1Btn(8)==1){
 				motor[spnmtr]=SPIN_SPEED;
 			}else{
 				motor[spnmtr]=0;
 			}
-			if(joy1Btn(1)==1){
+			if(joy1Btn(1)==1 && riseState==0){
+				riseState=1;
+				motor[lftmtr]=-LIFT_SPEED;
+			}
+			if(joy1Btn(2)==1 && riseState==2){
 				motor[lftmtr]=LIFT_SPEED;
 			}else{
-				if(joy1Btn(2)==1){
-					motor[lftmtr]=-LIFT_SPEED;
-				}else{
+				if(joy1Btn(2)==0 && riseState==2){
 					motor[lftmtr]=0;
 				}
 			}
+			if(riseState==1){
+				if (SensorValue(touchsnsr) == 1){
+					riseState=2;
+				}
+			}
+			if(joy1Btn(3)==1){
+				if(riseState!=4){riseState=4;}
+				else{riseState=0;}
+			}
+			if(riseState==4){
+				if(joy1Btn(1)==1){
+					motor[lftmtr]=LIFT_SPEED;
+				}else{
+					if(joy1Btn(2)==1){
+						motor[lftmtr]=-LIFT_SPEED;
+					}else{
+						motor[lftmtr]=0;
+					}
+				}
+			}
+			if(joy1Btn(7)==1){SPEED_MULT=CONST_SPEED_MULT/2;}else{SPEED_MULT=CONST_SPEED_MULT;}
 		}
 	}
 }
